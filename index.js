@@ -37,6 +37,12 @@ const getVideo = () => {
     videoplayer.removeAttribute('controls')
     videoplayer.src = videoURL
 
+    play.disabled = false;
+    stop.disabled = false;
+    forward.disabled = false;
+    rewind.disabled = false;
+    openInputButton.disabled = false
+
     getFromLocalStorage()
 }
 
@@ -130,7 +136,7 @@ const getFromLocalStorage = () => {
 
                 for (let i = 0; i < timeArray.length; i++) {
                     let value = parseInt(timeArray[i], 10);
-                    if (!isNaN(value)) return;
+                    if (isNaN(value)) return;
                     if (i === 0) {
                         totalSeconds += value;
                     }
